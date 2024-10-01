@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Início do documento XML -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    
+    x:Class="MauiAppMinhasCompras.Views.ListaProduto"
+  
+    Title="Minhas Compras">
+   
+
+    <ContentPage.ToolbarItems>
+        <!-- Itens da barra de ferramentas da página -->
+        <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1" />
+        <!-- Botão para somar, aciona evento ao clicar -->
+        <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked" />
+        <!-- Botão para adicionar, aciona evento ao clicar -->
+    </ContentPage.ToolbarItems>
+
+    <VerticalStackLayout>
+    
+        <SearchBar x:Name="txt_search" 
+            Placeholder="Busca de Produtos"
+           
+            TextChanged="txt_search_TextChanged"/>
+            <!-- Evento acionado ao alterar o texto -->
+            <ListView x:Name="lst_produtos" ItemSelected="lst_produtos_ItemSelected">
+                <!-- Lista para exibir produtos -->
+                <ListView.Header>
+                    <!-- Cabeçalho da lista -->
+                    <Grid ColumnDefinitions="*, *, *, *, *">
+                        <!-- Grid para organizar colunas -->
+                        <Label Grid.Column="0" Text="ID" />
+                        <!-- Rótulo para ID -->
+                        <Label Grid.Column="1" Text="Descrição" />
+                        <!-- Rótulo para descrição -->
+                        <Label Grid.Column="2" Text="Preço" />
+                        <!-- Rótulo para preço -->
+                        <Label Grid.Column="3" Text="Qnt" />
+                        <!-- Rótulo para quantidade -->
+                        <Label Grid.Column="4" Text="Total" />
+                        <!-- Rótulo para total -->
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <!-- Template para itens da lista -->
+                    <DataTemplate>
+                        <!-- Define o modelo de dados -->
+                        <ViewCell>
+                            <!-- Célula que representa cada item -->
+                            <ViewCell.ContextActions>
+                                <!-- Ações disponíveis para o item -->
+                                <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                                <!-- Item de menu para remover, aciona evento ao clicar -->
+                            </ViewCell.ContextActions>
+                            <Grid ColumnDefinitions="*, *, *, *, *">
+                                <!-- Grid para organizar os dados do produto -->
+                                <Label Grid.Column="0" Text="{Binding Id}" />
+                                <!-- Exibe o ID do produto -->
+                                <Label Grid.Column="1" Text="{Binding Descricao}" />
+                                <!-- Exibe a descrição do produto -->
+                                <Label Grid.Column="2" Text="{Binding Preco}" />
+                                <!-- Exibe o preço do produto -->
+                                <Label Grid.Column="3" Text="{Binding Quantidade}" />
+                                <!-- Exibe a quantidade do produto -->
+                                <Label Grid.Column="4" Text="{Binding Total}" />
+                                <!-- Exibe o total do produto -->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </VerticalStackLayout>
+</ContentPage>
