@@ -6,3 +6,5 @@ Este projeto é uma introdução ao desenvolvimento de aplicativos para disposit
 
 ## Tecnologias Utilizadas
  C#
+
+*Bruno Aparecido Rodrigues*
